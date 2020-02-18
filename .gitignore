@@ -1,0 +1,68 @@
+# C extensions
+*.c
+*.so
+
+# Jython
+*$py.class
+
+# Build artifacts
+*.egg
+*.egg-info
+*.py[cod]
+.eggs
+.installed.cfg
+.mypy_cache
+build
+develop-eggs
+dist
+eggs
+lib
+lib64
+parts
+sdist
+var
+pip-wheel-metadata
+
+# Installer logs
+pip-log.txt
+
+# Test artifacts
+*.dat
+.cache
+.coverage*
+.ecosystem
+.tox
+.pytest_cache
+htmlcov
+nosetests.xml
+
+# Docs
+docs/_build
+dash
+
+# Translations
+*.mo
+
+# Idea
+.idea
+
+# System
+.DS_Store
+
+# VIM swap files
+.*.swp
+
+# VIM temp files
+*~
+
+# VSCode
+
+.vscode
+
+#py Environment
+/venv
+/env
+.venv
+
+# SIP SIMPLE config
+config/
