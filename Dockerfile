@@ -25,4 +25,6 @@ USER user
 
 COPY . .
 
+VOLUME [ "/code/audio" ]
+
 CMD [ "python", "-m", "media_server" ]

@@ -1,0 +1,14 @@
+version: '3'
+services:
+  media-server:
+    image: $IMAGE_NAME
+    container_name: media-server
+    environment:
+      - MS_ACCOUNT_ID=$ACCOUNT_ID
+      - MS_ACCOUNT_USERNAME=$ACCOUNT_USERNAME
+      - MS_ACCOUNT_PASSWORD=$ACCOUNT_PASSWORD
+    volumes:
+      - /srv/media-server:/code/audio
+    devices:
+      - /dev/snd:/dev/snd
+    restart: unless-stopped

@@ -1,5 +1,6 @@
 variables:
   VERSION: "1.0"
+  IMAGE_NAME: $CI_REGISTRY_IMAGE:$VERSION
 
 stages:
   - package
@@ -15,10 +16,17 @@ package:
     DOCKER_HOST: tcp://docker:2376
     DOCKER_TLS_VERIFY: 1
     DOCKER_CERT_PATH: "/certs/client"
-    IMAGE_NAME: $CI_REGISTRY_IMAGE:$VERSION
   services:
     - docker:stable-dind
   script:
     - echo "$CI_JOB_TOKEN" | docker login -u gitlab-ci-token --password-stdin $CI_REGISTRY
     - DOCKER_BUILDKIT=1 docker build --build-arg VERSION=$VERSION --cache-from $IMAGE_NAME -t $IMAGE_NAME .
     - docker push $IMAGE_NAME
+
+deploy:
+  stage: deploy
+  only:
+    - master
+    - container-linux02
+  script:
+    - docker-compose up -d
