@@ -30,4 +30,5 @@ deploy:
   tags:
     - container-linux02
   script:
+    - echo "$CI_JOB_TOKEN" | docker login -u gitlab-ci-token --password-stdin $CI_REGISTRY
     - docker-compose up -d
