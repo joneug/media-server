@@ -1,9 +1,10 @@
 import logging
+import threading
 import time
-import redis
+
 from media_server import config
 from .SIPWavePlayer import SIPWavePlayer
-import threading
+
 
 def main():
     logging.basicConfig(level=config.LOGLEVEL, format='%(asctime)s [%(levelname)s] %(message)s')
@@ -22,6 +23,7 @@ def main():
         run_event.clear()
         application.stop()
         logging.info("SIP application closed successfully")
+
 
 if __name__ == '__main__':
     main()
