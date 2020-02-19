@@ -27,6 +27,7 @@ deploy:
   stage: deploy
   only:
     - master
-    - container-linux02
+  tags:
+    - $DEPLOY_RUNNER
   script:
     - docker-compose up -d
