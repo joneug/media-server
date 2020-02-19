@@ -28,6 +28,6 @@ deploy:
   only:
     - master
   tags:
-    - $DEPLOY_RUNNER
+    - container-linux02
   script:
     - docker-compose up -d
