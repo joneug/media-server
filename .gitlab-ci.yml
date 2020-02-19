@@ -19,6 +19,6 @@ package:
     - docker:stable-dind
   script:
     - echo "$CI_JOB_TOKEN" | docker login -u gitlab-ci-token --password-stdin $CI_REGISTRY
-    - docker pull $IMAGE_NAME
+    - docker pull $IMAGE_NAME || true
     - DOCKER_BUILDKIT=1 docker build --build-arg VERSION=$VERSION --cache-from $IMAGE_NAME -t $IMAGE_NAME .
     - docker push $IMAGE_NAME
