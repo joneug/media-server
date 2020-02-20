@@ -1,0 +1,24 @@
+version: '3'
+
+volumes:
+  audio: {}
+
+services:
+  media-server:
+    image: joneug/media-server
+    container_name: media-server
+    environment:
+      - MS_ACCOUNT_ID=$ACCOUNT_ID
+      - MS_ACCOUNT_USERNAME=$ACCOUNT_USERNAME
+      - MS_ACCOUNT_PASSWORD=$ACCOUNT_PASSWORD
+      - MS_REDIS_HOST=redis
+    volumes:
+      - audio:/code/audio
+    devices:
+      - /dev/snd:/dev/snd
+    depends_on:
+      - redis
+
+  redis:
+    image: redis
+    container_name: redis
