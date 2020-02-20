@@ -159,7 +159,8 @@ class SIPWavePlayer(SIPApplication):
             The notification.
         """
         logging.info('Session did start - starting WAV player')
-        audio_stream = self.session.streams[0]
+        session = notification.sender
+        audio_stream = session.streams[0]
         audio_stream.bridge.add(self.player)
         self.player.play()
 
@@ -173,7 +174,8 @@ class SIPWavePlayer(SIPApplication):
             The notification.
         """
         logging.info('Session will end - stopping WAV player')
-        audio_stream = self.session.streams[0]
+        session = notification.sender
+        audio_stream = session.streams[0]
         self.player.stop()
         audio_stream.bridge.remove(self.player)
 
