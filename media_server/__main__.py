@@ -19,10 +19,10 @@ def main():
         while True:
             time.sleep(0.1)
     except KeyboardInterrupt:
-        logging.info("KeyboardInterrupt received. Attempting to close SIP application...")
+        logging.info("KeyboardInterrupt received. Attempting to stop application...")
         run_event.clear()
         application.stop()
-        logging.info("SIP application closed successfully")
+        logging.info("SIP application stopped successfully")
 
 
 if __name__ == '__main__':
