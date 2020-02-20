@@ -7,6 +7,9 @@ from .SIPWavePlayer import SIPWavePlayer
 
 
 def main():
+    """
+    Main function that starts the application and listens for keyboard interrupts that will stop the application.
+    """
     logging.basicConfig(level=config.LOGLEVEL, format='%(asctime)s [%(levelname)s] %(message)s')
 
     run_event = threading.Event()
@@ -19,10 +22,10 @@ def main():
         while True:
             time.sleep(0.1)
     except KeyboardInterrupt:
-        logging.info("KeyboardInterrupt received. Attempting to stop application...")
+        logging.info("KeyboardInterrupt received - attempting to stop application")
         run_event.clear()
         application.stop()
-        logging.info("SIP application stopped successfully")
+        logging.info("Application stopped successfully")
 
 
 if __name__ == '__main__':
