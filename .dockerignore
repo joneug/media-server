@@ -92,11 +92,8 @@ venv/
 */*/*.swp
 */*/*/*.swp
 
-# vscode
-.vscode
-
-# CI
-docker-compose.yml
+# README
+README.md
 
 # SIP SIMPLE config
 config/
