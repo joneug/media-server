@@ -1,6 +1,6 @@
 # 📢 Media Server
 
-[![](https://images.microbadger.com/badges/version/joneug/media-server.svg)](https://microbadger.com/images/joneug/media-server "Get your own version badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/joneug/media-server.svg)](https://hub.docker.com/r/joneug/media-server) [![](https://images.microbadger.com/badges/image/joneug/media-server.svg)](https://microbadger.com/images/joneug/media-server)
 
 This repository contains code for a SIP application that calls SIP URIs provided in a redis database and play a given
 WAV file. The code was adapted from [saghul/sipsimple-examples](https://github.com/saghul/sipsimple-examples). It uses
