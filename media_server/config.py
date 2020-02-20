@@ -16,7 +16,7 @@ REDIS_PORT = int(os.environ.get('MS_REDIS_PORT', 6379))
 REDIS_DB = int(os.environ.get('MS_REDIS_DB', 0))
 REDIS_INDEX = 'callees'
 
-# VoIP Account
+# SIP Account
 ACCOUNT_ID = os.environ.get('MS_ACCOUNT_ID')
 ACCOUNT_USERNAME = os.environ.get('MS_ACCOUNT_USERNAME')
 ACCOUNT_PASSWORD = os.environ.get('MS_ACCOUNT_PASSWORD')
