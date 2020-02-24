@@ -63,7 +63,7 @@ class SIPWavePlayer(SIPApplication):
                 callee = self.redis_connection.lpop(config.REDIS_INDEX)
 
             if not callee:
-                logging.info('No callees to call - sleeping for %s second' % config.SLEEP_TIME)
+                logging.info('No callees to call - sleeping for %s seconds' % config.SLEEP_TIME)
                 time.sleep(config.SLEEP_TIME)
                 continue
 
@@ -193,7 +193,7 @@ class SIPWavePlayer(SIPApplication):
 
     def _NH_SIPSessionDidFail(self, notification):
         """
-        Notification handler triggered after session failer.
+        Notification handler triggered after session failure.
 
         Parameters
         ----------
@@ -234,7 +234,7 @@ class SIPWavePlayer(SIPApplication):
                 '%d %s' %
                 (registrar.address, registrar.port, registrar.transport, code, reason)
             )
-            self.stop()
+            self.next_call()
 
     def _NH_SIPAccountRegistrationDidSucceed(self, notification):
         """
@@ -270,7 +270,7 @@ class SIPWavePlayer(SIPApplication):
             'Error: %s' %
             (self.account.id, notification.data.error)
         )
-        self.stop()
+        self.next_call()
 
     def _NH_SIPAccountRegistrationDidEnd(self, notification):
         """
