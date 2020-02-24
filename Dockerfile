@@ -19,9 +19,12 @@ RUN wget http://download.ag-projects.com/agp-debian-gpg.key && \
     pip install --no-cache-dir -r requirements.txt && \
     apt-get purge -y --auto-remove wget python-pip
 
-RUN useradd user && \
-    chown -R user /code
-USER user
+RUN useradd falcon && \
+    mkdir -p /code/audio && \
+    chown -R falcon:falcon /code && \
+    chmod 755 /code
+
+USER falcon
 
 COPY . .
 
